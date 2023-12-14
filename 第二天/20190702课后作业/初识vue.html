@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+      *{
+        padding: 0px;
+        margin:0px;
+      }
+             .pink{
+                  height: 20px;
+                  margin:30px auto;
+                  width:500px;
+                  background: pink;
+                  position: relative;
+             }
+             /* .pink>span{
+              width:100%;
+              height: 20px;
+              display: inline-block;
+              background:#abcdef;
+             } */
+             /*进度条滑块*/
+             .bar{
+             	position: absolute;
+             	width: 15px;
+             	height: 40px;
+             	top: -10px;
+             	background-color: cyan;
+             }
+      </style>
+</head>
+<body>
+     
+      <div id="rao">
+
+           <div v-bind:style="{width:w1,height:h1,margin:m1}">
+                <img src="imgs/yasuo.jpg" v-if="w2<400"/>
+                <img src="imgs/宫本.jpg" v-if="w2>=400"/>
+           </div>
+           <!-- 进度条 -->
+           <div class="pink">
+                <span v-bind:style="{width:w2+'px',background:'#abcdef',height:'20px',display:'inline-block'}"></span>
+                <div></div>
+                <progress></progress>
+           </div>
+           <!-- 按钮 -->
+           <button @click="add()">增加进度条</button>
+           <button @click="reset()">一键还原</button>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#rao',
+                  data:{ 
+                     w1:"500px",
+                     h1:"313px",
+                     m1:"0px auto",
+                     w2:0,
+                  },
+                  methods:{
+                     //增加进度条按钮
+                     add:function(){
+                      if(this.w2<500 && this.w2>=0){
+                        this.w2 = this.w2 + 25
+                      }else if(this.w2>=500){
+                        this.w2 = 500
+                      }
+                     },
+                     //一键还原按钮
+                     reset:function(){
+                     	this.w2 = 0
+                     }
+                  }
+                  
+              })
+      </script>
+</body>
+</html>

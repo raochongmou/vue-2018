@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    
+    <!--实例化多个vue对象-->
+    <div id="box">
+    	 <!--<a href="https://www.baidu.com">跳到百度</a>-->
+    	 <my-component></my-component>
+    </div>
+    <div id="box2">
+    	 <!--<a href="https://www.baidu.com">跳到百度</a>-->
+    	 <my-component></my-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	    //vue组件分为:全局组件和局部组件
+    	    //1.全局组件放在实例化组件下面,局部组件放在component里面
+    	    //2.所有组件都要在父级模版内调用
+    	    //3.组件命名也是调用的标签名(默认双标签)，浏览器不渲染组件标签,template只能是一个父级标签
+    	    //4.组件也是实例化vue对象template连接的是视图，data是数据后面接函数return后面返回数据对象methods方法不变
+    	    //5.组件内还能嵌套组件
+    	    //全局组件放上面
+    	    /*Vue.component('my-component',{
+    	    	template:'<div><a v-bind:href="bai" v-show="bol">跳到百度</a></div><div><a v-bind:href="js" v-show="!bol">跳到百度</a></div>',
+    	    	data:function(){
+    	    		return{
+    	    			bai:'https://www.baidu.com',
+    	    			js:'https://luozhihao.github.io/vue-puzzle/index.html',
+    	    			bol:true
+    	    		}
+    	    	}
+    	    })*/
+    	    var Vue.component('my-com',{
+    	    	template:'<div><p>大家好，我叫{{name}}</p><button @click = "changeName">改名<button><div>',
+    	    	data:function(){
+    	    		return{
+    	    			name:'z张三'
+    	    		}
+    	    	},
+    	    	methods:{
+    	    		changeName:function(){
+    	    			this.name = '李四'
+    	    		}
+    	    	}
+    	    	
+    	    })
+    	    var vm = new Vue({
+    	    	el:'#box',
+    	    	components:{
+    	    		jubu:{
+    	    			template:'<h2>我是box里面的局部组件</h2>'
+    	    		}
+    	    	}
+    	    })
+    	    //视图放下面
+            var vm = new Vue({
+            	el:'#box'
+            })
+            var vm2 = new Vue({
+            	el:'#box2'
+            })
+            
+    </script>
+</body>
+</html>

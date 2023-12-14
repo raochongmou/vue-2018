@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+             .blue{
+                  height: 200px;
+                  width:200px ;
+                  background: blue;
+             }
+             .bor{
+                  border: 20px solid green;
+             }
+      </style>
+</head>
+<body>
+     
+      <div id="rao">
+           姓名 :  <input type="text"  v-model="name"/>
+           年龄 :  <input type="text" v-model="age" />
+           <hr/> 
+           性别 :  <input type="radio" name="combine" checked="checked" value="man" v-model="sex" />男
+                   <input type="radio" name="combine" value="women" v-model="sex"/>女
+           <hr/>
+           喜欢的游戏 :  <input type="checkbox" value="宫本" v-model="games" />王者荣耀 
+
+           <input type="checkbox" value="亚索" v-model="games"  />神庙逃亡 <input type="checkbox" value="绝地" v-model="games" />消消乐  
+           <div>
+                <img style="width: 250px;margin: 2px 10px;" 
+                v-for='(game,index) in games'
+                :key="index"
+                v-bind:src='"imgs/"+game+".jpg"'/>
+           </div>
+           <hr/>
+           <select v-model='city'>
+                   <option value="">请选择</option>
+                   <option value="武汉">武汉</option>
+                   <option value="上海">上海</option>
+                   <option value="北京">北京</option>
+           </select>
+
+
+           <!-- 双向数据改变 -->
+           <p>报告长官 : 我叫{{name}},今年{{age}}岁,I am a {{sex}}<span></span>,喜欢打的游戏是{{games.join(',')}},我想去工作的地方是{{city}}</p>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#rao',
+                  data:{ 
+                      name:'',
+                      age:'',
+                      sex:"women",
+                      games:[],
+                      city:"",
+                      tu:""
+                  }
+                  
+              })
+      </script>
+</body>
+</html>

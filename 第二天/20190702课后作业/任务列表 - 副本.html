@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+             a{
+              text-decoration: none;
+             }
+             li{
+              list-style: none;
+             }
+             .finish{
+              color:#ccc;
+              text-decoration: line-through;
+             }
+             .list{
+              color:skyblue;
+             }
+      </style>
+</head>
+<body>
+     
+      <div id="rao">
+           <h2>任务列表</h2>
+           <p>任务列表 : {{items.length}};    还有{{noDo()}}个未完成;
+            【<a @click='did()' class="list" href="javascript:;">点击删除完成项</a>】</p>
+           <ul>
+            <li v-for="indexs in items" v-bind:class='{finish:indexs.isDo}'>
+              <input type="checkbox" v-model='indexs.isDo'/>
+              <span>{{indexs.title}}</span>
+              {{indexs.isDo}}
+           </li>
+           </ul>
+           <input type="text" v-model='title' /><button @click='add()'>添加</button>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#rao',
+                  data:{ 
+                     items:[
+                           {title:'需求分析',isDo:false},
+                           {title:'原型图',isDo:false},
+                           {title:'设计页面',isDo:false},
+                           {title:'实现页面',isDo:false},
+                           {title:'js交互',isDo:false}
+                           ],
+                      title:''
+                  },
+                  methods:{
+                    // 未完成的
+                    noDo:function(){
+                      var num = 0;//没有完成的事项的个数
+                      for(var i=0;i<this.items.length;i++){
+                        if(!this.items[i].isDo){
+                          num++;
+                        }
+                      }
+                      return num;
+                    },
+                    did:function(){
+                      for(var i=0;i<this.items.length;i++){
+                        if(this.items[i].isDo){//删除
+                          this.items.splice(i,1);
+                          i--;
+                        }
+                      }
+                    },
+                    add:function(){
+                      if(this.title.length == 0){
+                        alert('请输入要添加的事项');
+                      }else{
+                        this.jia();
+                      }
+                    },
+                    jia:function(){
+                      for(var  i=this.items.length;i>=0;i--){
+                        if(this.items[i].title == this.title){
+                          alert('不要重复添加');
+                          return;
+                        }else if(this.items[i].title != this.title){
+                          this.items.push({title:this.title,isDo:false});
+                        }
+                      }
+                    }
+                  }
+                  
+              })
+      </script>
+</body>
+</html>

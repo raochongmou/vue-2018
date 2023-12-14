@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+    	   *{
+    	   	padding: 0px;
+    	   	margin: 0px;
+    	   }
+    	   .container{
+    	   	margin: 0 auto;
+    	   	width: 500px;
+    	   	height: 500px;
+    	   	border: 5px solid gray;
+    	   }
+           .top{
+           	width:500px;
+           	height: 200px;
+           	border-bottom: 5px solid gray;
+           }
+    </style>
+</head>
+<body>
+    
+    <!--实例化多个vue对象-->
+    <div id="box" class="container">
+    	 <topdiv></topdiv>
+    	 <!--<leftdiv></leftdiv>
+    	 <rightdiv></rightdiv>-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	    var vm = new Vue({
+    	    	el:'#box',
+    	    	components:{
+    	    		'topdiv':{
+    	    			template:'<div class="top"></div>'
+    	    		}
+    	    		'leftdiv':{
+    	    			template:'<div class="left">我是左边大盒子<leftOne></leftOne><leftTwo></leftTwo></div>',
+    	    			components:{
+    	    				'leftOne':{
+    	    					template:'<div class="left1">左边盒子的第一个子盒子</div>'
+    	    				},
+    	    				'leftTwo':{
+    	    					template:'<div class="left2">左边盒子的第二个子盒子</div>'
+    	    				}
+    	    			}
+    	    		},
+//  	    		'rightdiv':{
+//  	    			template:'<div class="right">我是右边大盒子<rightOne></rightOne><rightTwo></rightTwo><rightThree></rightThree></div>',
+//  	    			components:{
+//  	    				'rightOne':{
+//  	    					template:'<div class="right1">右边盒子的第一个子盒子</div>'
+//  	    				},
+//  	    				'rightTwo':{
+//  	    					template:'<div class="right2">右边盒子的第二个子盒子</div>'
+//  	    				},
+//  	    				'rightThree':{
+//  	    					template:'<div class="right3">右边盒子的第三个子盒子</div>'
+//  	    				}
+//  	    			}
+//  	    		}
+    	    	}
+    	    })
+    </script>
+</body>
+</html>

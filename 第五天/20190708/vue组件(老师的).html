@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="box">
+    	 <my-com></my-com>
+    	 <jubu></jubu>
+    	 <ju2></ju2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	    //全局组件
+    	    Vue.component('my-com',{
+    	    	template:'<div><p>大家好,我叫{{name}}</p><button @click="changeName">改名</button></div>',
+    	    	data:function(){
+    	    		return{
+    	    			name:'张三'
+    	    		}
+    	    	},
+    	    	methods:{
+    	    		changeName:function(){
+    	    			this.name='李四'
+    	    		}
+    	    	}
+    	    })
+    	    var vm = new Vue({
+    	    	el:'#box',
+    	    	components:{
+    	    		'jubu':{
+    	    			template:'<h2 @mouseover="changeName">我是box里面的局部组件{{name}}<sun></sun></h2>',
+    	    			data:function(){
+    	    				return{
+    	    					name:'第一个 jubu'
+    	    				}
+    	    			},
+    	    			methods:{
+    	    				changeName:function(){
+    	    					this.name = '李四'
+    	    				}
+    	    			},
+    	    			components:{
+    	    				'sun':{
+    	    					template:"<h1看我是vm里的孙子组件</h1>"
+    	    				}
+    	    			}
+    	    		},
+    	    		ju2:{
+    	    			template:'<h6>我是box里面的第二个局部组件</h6>'
+    	    		}
+    	    	}
+    	    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background-color: #C0F1FD;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .app{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .imgk{
+            width: 500px;
+            height: 300px;
+        }
+        .lik{
+            width: 500px;
+            height: 300px;
+            color: white;
+            position: absolute;
+        }
+        .kb{
+            width: 510px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .navt{
+            background-color: #F6D4A4;
+		    margin-left: 10px;
+		    height: 20px;
+		    width: 20px;
+		    line-height: 20px;
+		    font-size: 20px;
+		    color: #fff;
+		    border-radius: 50%;
+		    display: inline-block;
+		    text-align: center;
+		    opacity: 0.5;
+        }
+        .active{
+            opacity: 1;
+        }
+        .liDiv{
+            margin-top: -30px;
+            margin-left: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+      <div id="app">
+      	   <div @mouseover='stop()' @mouseout='move()' class="app">
+      	   	    <transition-group tag='ul' name='image' class='kb'>
+      	   	    	              <li class="lik" v-for='(items,index) in list' v-show="index===num" :key='index'>
+      	   	    	              	  <img :src="items" alt='' class="imgk"/>
+      	   	    	              	  <div class="liDiv">
+      	   	    	              	  	   <span v-for='(items,index) in data' class="navt" @click='change(index)' :class="{'active':index==num}">{{items}}</span>
+      	   	    	              	  </div>
+      	   	    	              </li>
+      	   	    </transition-group>
+      	   </div>
+      </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+        var vm = new Vue({
+        	el:'#app',
+        	data(){
+        		return{
+        			data:['1','2','3','4'],
+        			time:'',
+        			num:0,
+        			list:[
+        			     'imgs/yasuo.jpg',
+        			     'imgs/gongben.jpg',
+        			     'imgs/juedi.jpg',
+        			     'imgs/yasuo.jpg',
+        			],
+        		}
+        	},
+        	methods:{
+        		play(){
+        			this.time = setInterval(()=>{
+        				this.num++;
+        				if(this.num==4){
+        					this.num=0
+        				}
+        			},1000)
+        		},
+        		change(i){
+        			this.num = i
+        		},
+        		stop(){
+        			clearInterval(this.time)
+        		},
+        		move(){
+        			this.play();
+        		}
+        	},
+        	created(){
+        		this.play();
+        	},
+        })
+    
+</script>
+</body>
+
+</html>

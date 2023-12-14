@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>初恋vue</title>
+	<meta charset="utf-8">
+</head>
+<body>
+      <!-- 知识点
+      1.vue.js是渐进式框架(方便上手和第三方库或框架兼容)，2014.2开源
+      2.开发者:尤雨溪(美籍华人)所带团队,16年9月加盟阿里巴巴
+      3.框架思想:MVVM
+      MVC
+      M:model 数据
+      V:view  视图
+      C:control  控制器(业务逻辑)
+      MVVM
+      M:model 数据 存放数据
+      V:view  视图 页面
+      VM:view-model 链接页面和数据,el链接视图层,data链接数据层,实现数据视图双向绑定
+      4.优缺点:
+      ①简洁性:html模板+vue实例+json数据
+      ②性能好 很好的支持移动端
+      ③设计思想先进:视图和数据分离,无需操作dom，操作数据
+      ④社区资料丰富, 中文资源，开源案例
+      5.要用VUE先引文件，在自己的js内先创建vue实例对象
+      var vm = new Vue({
+	      el:'#id名',//告诉浏览器渲染在id名一致的标签里,链接view层,必须写
+	      data:{     //链接model层,里面放的是数据,按需要来写,一般直接渲染在页面中或在方法内调用
+	          
+	      },
+	      methods:{    //里面放的是方法/函数,按需要来写,一般在绑定事件上或其他方法内调用,绑定事件时,有参数就必须写(),没有可写可不写,在其他方法内必须加()
+	
+	      },
+	      computed:{     //里面放的是方法/函数,按需要来写,一般在绑定事件上调用
+	
+	
+	      }
+      })
+       -->
+       
+       <!-- 例一:需求:
+       	1.存储代办事项
+       	2.增加代办事项
+       	3.删除代办事项 -->
+       <!-- 原生js -->
+       <!-- <h1></h1>
+       <input type="text" value="" /><button onclick="add()">点击添加</button>
+       <input type="text" value="" /><button onclick="del()">点击删除</button> -->
+       <!-- <script type="text/javascript">
+      	       //1.存储代办事项
+      	       var arr = ['吃饭','睡觉','打豆豆'];
+                   var h = document.getElementsByTagName('h1')[0];
+                   var inp1 = document.getElementsByTagName('input')[0];
+                   var inp2 = document.getElementsByTagName('input')[1];
+                   h.innerHTML = arr;
+      	       //2.增加代办事项
+      	       function add(){
+                        inpVal = inp1.value;
+                        if(inpVal == ""){
+                              console.log('输入的值不能为空!');
+                        }else{
+                             arr.push(inpVal);
+                             h.innerHTML = arr;
+                        }
+      	       	
+      	       }
+      	       
+      	       //3.删除代办事项
+      	       function del(){
+                        // inpVal = inp.value;
+                        for(var i=0;i<arr.length;i++){
+                              if(inp2.value == arr[i]){
+                                    arr.splice(i,1);
+
+                                    h.innerHTML = arr;
+                                    console.log(h.innerHTML);
+                              }
+                        }
+      	       }   
+      </script> -->
+       <!-- <div id="app">
+       	    <ul>
+       	    	<li v-for='product in products'>
+       
+       	    		{{product.quantity}}{{product.name}}
+       	    		<span v-if='product.quantity === 0'></span>
+       	    	</li>
+       	    </ul>
+       </div> -->
+       <div id="app">
+                 
+                 <span v-for='item in arr'>
+                       {{item}},
+                 </span>
+                 <input type="text" v-model='inp1'/>
+                 <button @click='add()'>增加事件</button>
+                 <button v-on:click='del()'>删除事件</button>
+       </div>
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <script type="text/javascript">
+            
+
+      	       var app = new Vue({
+      	       	el:'#app',
+      	       	data:{
+      	       		arr:['吃饭','睡觉','打豆豆'],//1.存储代办事项
+                              inp1:""
+                              
+      	       	},
+      	       	methods:{
+      	       		add:function(){
+      	       			this.arr.push(this.inp1);
+      	       		},
+      	       		del:function(){
+      	       			for(var i=this.arr.length;i>=0;i--){
+                                          if(this.arr[i] == this.inp1){
+                                                this.arr.splice(i,1);
+                                          }
+                                    }
+      	       		}
+      	       	}
+      	       })
+      </script>
+       <!-- <h1>模板应用 methods和computed的区别</h1>
+       <div id="div1">
+            <h3>
+                  {{msg}}
+            </h3>
+            <button @click='diao'>点我换班</button>
+            <h2>
+                   年龄:{{age}}岁
+                   <button @click='jia(1)'>点我加1岁</button>
+            </h2>
+            <h1>
+                  A的值:{{a}}
+            </h1>
+            <h1>
+                  B的值:{{b}}
+            </h1>
+            <h1>
+                  C的值:{{c}}
+            </h1>
+            <h1>
+                  A + B的值:{{add1()}}
+            </h1>
+            <h1>
+                  A + c的值:{{add2()}}
+            </h1>
+            computed方法 不加()
+            <h1>
+                  A + B的值:{{add3}}
+            </h1>
+            <h1>
+                  A + c的值:{{add4}}
+            </h1>
+       </div> -->
+         <!-- <div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div> -->
+<!-- <script type="text/javascript">
+        var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+</script> -->
+       <!-- <script type="text/javascript">
+       
+       	       var vm = new Vue({
+       	       	el:'#div1',
+       	       	data:{
+       	       		msg:'1902班',
+       	       		age:19,
+       	       		a:10,
+       	       		b:5,
+       	       		c:8
+       	       	},
+       	       	methods:{
+       	       		change:function(){
+       	       			this.msg = '1903班'
+       	       		},
+       	       		diao:function(){
+       	       			this.change();
+       	       		},
+       	       		jia:function(shu){
+       	       			this.age+=shu;
+       	       		},
+       	       		add1:function(){
+       	       			return this.a + this.b;
+       	       			
+       	       		},
+       	       		add2:function(){
+       	       			return this.a + this.c;
+       	       		}
+       	       		
+       	       	},
+       	       	computed:{
+       	       		add3:function(){
+       	       			return this.a + this.b;
+       	       		},
+       	       		add4:function(){
+       	       			return this.a + this.c;
+       	       		}
+       	       	}
+       	       })
+       	     
+       </script> -->
+
+
+</body>
+</html>

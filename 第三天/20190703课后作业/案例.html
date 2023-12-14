@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="GBK">
+		<title>02v-model,v-if,v-show,v-else,v-else-if,v-for</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+
+			<!-- 一、v-model -->
+			<!-- <input type="text" v-model="val">
+			<h3>{{val}}</h3>
+			<button @click="change">点我试试！</button> -->
+
+			<!-- 二 v-if，v-else-if，v-else和v-if和v-show的区别-->
+			<!-- 二选一的情况 -->
+			<!-- <button @click="toggle">404，error的值是{{error}}</button>
+			<p v-if="error">页面链接错误，请重试</p>
+			<p v-else>网速超好，链接成功</p>
+ -->
+			<!-- 多选一的情况 -->
+			<!-- <button @click="random">num的值是{{num}}</button>
+			<p v-if="num>0.8">您打败了全国80%的电脑</p>
+			<p v-else-if="0.65<num && num<=0.8">凑合用吧</p>
+			<p v-else-if="0.5<num && num<=0.64">没钱换，忍忍吧</p>
+			<p v-else="num<=0.5">这个乌龟电脑，换一个吧</p> -->
+
+			
+			<!-- v-if 是一个指令，所以必须将它添加到一个元素上。但是如果想切换多个元素呢？ -->
+			<!-- 方法一 判断3次 影响性能-->
+			<!-- <button @click="toggle">404，error的值是{{error}}</button>
+			<p v-if="error">页面链接错误，请重试</p>
+			<img v-if="error" src="img/ku.png">
+			<a v-if="error" href="https://www.baidu.com">百度搜下</a> -->
+			
+			<!-- 方法二：此时可以把一个 <template>  分组渲染 元素当做不可见的包裹元素，并在上面使用 v-if。最终的渲染结果将不包含 <template> 元素。 -->
+			<!-- <button @click="toggle">404，error的值是{{error}}</button>
+			<template v-if="error">
+				<p>页面链接错误，请重试</p>
+				<img src="img/ku.png">
+				<a href="https://www.baidu.com">百度搜下</a>
+			</template> -->
+
+			<!-- v-if和v-show的区别 看控制台，当后面的条件为true时，两者都显示，为false时，v-if不插入节点，v-show是将节点的display改为none隐藏起来而已，详细的区别见教程里v-if VS v-for的区别共4点-->
+			<!-- <p v-show="error">v-show的写法页面链接错误，请重试</p> -->
+
+
+			<!-- 三、v-for -->
+			<!-- 需求：将数组内的元素取出来展示在页面上 -->
+			<!-- 方法一：数组[索引号] ，此法笨重不灵活，不可取-->
+			<!-- {{love[0]}}——{{love[1]}}——{{love[2]}} -->
+			
+			<!-- 方法二：用v-for的指令 -->
+			<!-- <ul> -->
+				<!-- <like 可以是任意的a，b，但是love必须是data里的love> -->
+				<!-- <li v-for="like in love">
+					{{like}}
+				</li>  -->
+
+				<!-- 不仅可以读取数组内的元素，还可以读取索引号,用小括号（变量，索引）里面的顺序可以倒过来（索引，变量），只是注意倒过来之后li里面显示时要写变量-索引，否则索引号就在后面呢 这个index是个变量可自己命名的 -->
+				<!-- <li v-for="(like,index) in love">
+					{{index}}-{{like}}   -->
+					<!-- {{index+1}}-{{like}} 要想把索引当做序号用，加1即可 -->
+		<!-- 	    </li>
+			</ul>   -->
+
+			<!-- <ul> -->
+				<!-- <li v-for="(user,index) in students">
+					{{index}} -- {{user}}
+					{{index}}——{{user.name}}--{{user.age}} ---{{user.sex}}
+				</li> -->
+				
+				<!-- v-for的嵌套 -->
+				<!-- <li v-for="(user,index) in students">
+					<h3 v-for="(val,key) in user">
+						{{index}}-{{key}}:{{val}}		
+					</h3>	
+				</li> -->
+				<!-- 需求1：遍历students，将满足条件的内容展示出来 -->
+				<!-- <li v-for="(user,index) in students" v-if="user.age == 18">
+					{{user.name}}
+				</li> -->
+				<!-- 需求2 ：当条件满足时才遍历,遍历后再将符合要求的展示出来 -->
+				<!-- 方法一,v-for之后再v-if判断符合条件的 -->
+				<!-- <button v-on:click="nv">找美女</button>
+				<li  v-if="mei">
+					<p v-for="(user,index) in students" v-if = "user.sex=='woman'">
+						{{user}}
+					</p>
+				</li> -->
+
+				<!-- 方法二 在方法nv中处理数据 -->
+				<!-- <button v-on:click="nv('woman')">找美女</button>
+				<button v-on:click="nv('man')">找帅哥</button>
+				<li  v-if="mei">
+					<p v-for="(user,index) in per">
+						{{user}}
+					</p>
+				</li> -->
+				<!-- 作为作业布置，点击按钮分别找美女和找帅哥，注意设置新数组，满足条件的放新数组中，遍历新数组 -->
+			<!-- </ul> -->
+
+			<!-- <ul>
+				<li v-for="(value,key,index) in person">
+					{{index}}——{{key}}:{{value}}
+				</li>
+			</ul> -->
+			<!-- <div v-for="(value,key,index) in person">
+				{{index+1}}——{{key}}:{{value}}	
+			</div> -->
+			<h1>用table写的</h1>
+			<table border="1" width="400px">
+				<tr>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+				<tr>
+					<td>刘小二</td>
+					<td>8</td>
+					<td>woman</td>
+				</tr>
+				<tr>
+					<td>刘备</td>
+					<td>18</td>
+					<td>man</td>
+				</tr>
+			</table>
+
+			<h1>用vue写的</h1>
+			<table border="1" width="400px">
+				<tr>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+				<tr v-for="item in students">
+					<td>{{item.name}}</td>
+					<td>{{item.age}}</td>
+					<td>{{item.sex}}</td>
+				</tr>
+				
+			</table>
+
+
+		</div>
+
+
+		<script type="text/javascript">
+			// 实例化vue对象
+			var vm = new Vue({
+				el:"#box",
+				data:{
+					name:"",
+					age:"",
+					A:10,
+					B:20,
+					c:100,
+					isRed:true,
+					tall:false,
+					bg1:"bg",
+					size1:"size",
+					error:false,
+					num:0,
+					love:["吃饭","睡觉","打豆豆"],
+					person:{name:"guaiguai",sex:"woman"},
+					students:[
+						{name:"王虎",age:98,sex:"woman"},
+						{name:"刘小二",age:8,sex:"woman"},
+						{name:"刘备",age:18,sex:"man"},
+						{name:"宋城",age:28,sex:"woman"},
+						{name:"李小龙",age:18,sex:"man"},
+						{name:"赵宇",age:18,sex:"woman"}
+					],
+					mei:false,
+					per:[],
+					val:"请输入昵称"
+				},
+				methods:{
+					nv:function(sx){
+						this.per = [];
+						// this.mei = true;方法一里的直接赋值
+						for(var i=0;i<this.students.length;i++){
+								if(this.students[i].sex == sx){
+									this.per.push(this.students[i]);
+									this.mei = true;
+								}
+						}	
+					},
+					logName:function(){
+						console.log("你在输入姓名");
+					},	
+					logAge:function(){
+						console.log("你在输入年龄");
+					},
+					ming:function(){
+						this.name = this.$refs.name1.value;
+					},	
+					nian:function(){
+						this.age = this.$refs.age1.value;
+					},
+					/*add1:function(){
+						console.log("运行了add1");
+						return this.A + this.c;
+					},
+					add2:function(){
+						console.log("运行了add2");
+						return this.B + this.c;
+					}*/
+					changeColor:function(){
+						this.isRed = !this.isRed;
+					},
+					changeWidth:function(){
+						this.tall = !this.tall;
+					},
+					toggle:function(){
+						this.error = !this.error;
+						
+					},
+					random:function(){
+						this.num = Math.random();
+					},
+					change:function(){
+						this.val = this.val + "，你这个糟老头，坏滴很！"
+					}
+				},
+
+				computed:{
+					add1:function(){
+						console.log("运行了add1");
+						return this.A + this.c;
+					},
+					add2:function(){
+						console.log("运行了add2");
+						return this.B + this.c;
+					}
+				}
+			})
+
+		</script>
+	</body>
+</html>

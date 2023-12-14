@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="box">
+    	 <my-com :mm='list' :shu='num'></my-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	var x = 10;
+            var vm = new Vue({
+            	el:'#box',
+            	data:{
+            		list:{
+            			[1,2,3,4],
+            			num:10
+            		}
+            	},
+            	components:{
+            		'my-com':{
+            			template:`<div>
+            			<h2>小米官网</h2>
+            			<ul>
+            			    <li v-for="item in arr">{{item}}${x}</li>
+            			</ul>
+            			`,
+            			props:{
+            				'mm':{type:Array},
+            				'shu':{type:Number}
+            			}
+            		}
+            	}
+            })
+            //要点:template后面可以用\来转义换行,还可以用``反引号的字符串模板,还可以用
+            //在html中加template:'#id名'
+    </script>
+</body>
+</html>

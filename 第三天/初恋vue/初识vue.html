@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>初恋vue</title>
+	<meta charset="utf-8">
+      <style type="text/css">
+             .blue{
+                  height: 200px;
+                  width:200px ;
+                  background: blue;
+             }
+             .bor{
+                  border: 20px solid green;
+             }
+      </style>
+</head>
+<body>
+      <!-- 要点:
+      1.指令:带有前缀v-,以表示他们是vue,提供的特殊特性，本质是属性，放在开始标签里
+      2.用途:在表达式的值改变时，将某些行为应用到Dom上
+      3.注意:一个标签内可以使用多个指令，之间用空格隔开
+      二、常用指令:(必须掌握)
+      1.v-on    为元素绑定事件  语法:v-on  事件名 = '函数名()' 简写:@事件名 = '函数名()'
+      2.v-bind  绑定属性   语法:v-bind:属性名='数据(和属性值有关)'简写：@事件名='函数名()'
+       -->
+      <div id="box">
+            <a v-bind:href="baidu">百度</a>
+            <input type="text" :value="words">
+            <div :style='{height:h,width:w,background:bg}'></div>
+            <div :style='styleObj'></div>
+            <!-- 需求:这个div要么有背景色要么有边框 -->
+            <div :class="{blue:jia,bor:!jia}">我是要被改的div</div>
+            <button @click='change'>改变div的样式</button>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#box',
+                  data:{
+                      baidu:'https://www.baidu.com',
+                      words:'我是input',
+                      h:"200px",
+                      w:"200px",
+                      bg:"red",
+                      styleObj:{
+                        height:"200px",
+                        width:"200px",
+                        background:"yellow"
+                      },
+                      jia:false
+                  },
+                  methods:{
+                        change:function(){
+                              this.jia = !this.jia;
+                        }
+                  }
+              })
+      </script>
+</body>
+</html>

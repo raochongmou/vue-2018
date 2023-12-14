@@ -1,0 +1,138 @@
+/*公共样式*/
+*{margin: 0px; padding: 0px;font-size: 12px;}
+li{list-style: none;}
+a{text-decoration: none;}
+.clear{clear: both;}
+
+/*头部部分*/
+.top{
+	width: 948px;
+	height: 50px;
+	margin: 0 auto;
+	background: url(../images/logo.gif) no-repeat 40px 8px,-webkit-linear-gradient(#fef3d5,#fff);
+	border: 1px solid #cccccc;
+}
+.logo_right{
+	float: right;
+	margin-right: 60px;
+	margin-top: 30px;
+}
+.logo_right li{
+	float: left;
+	height: 13px;
+	padding: 0 12px;
+	border-right: 1px solid #6F6F6F;
+}
+.logo_right li a{
+	color: #1C67B4;
+}
+.logo_right .li_s{
+	border-right: none;
+}
+/*注册部分*/
+.regsiter{
+	width: 950px;
+	height: 442px;
+	margin: 15px auto;
+	padding: 5px 1px 0px;
+	background: url(../images/register_top_bg.gif)no-repeat 0px 0px,url(../images/register_cont.gif) no-repeat 0px 0px,url(../images/register_cont.gif) no-repeat 949px 0px;
+}
+.regsiter_top{
+	height: 32px;
+	width: 948px;
+	border-bottom: 2px solid #a3a3a3;
+	background: url(../images/register_tag_left.gif) no-repeat 0px 0px,url(../images/register_tag_mid.gif) no-repeat 313px 0px,url(../images/register_tag_right.gif) no-repeat 631px 0px;
+}
+.regsiter_top_ul li{
+	height: 32px;
+	line-height: 32px;
+	padding: 0px 120px;
+	float: left;
+}
+.regsiter_top_li{
+	font-weight: bold;
+	color: #501500;
+}
+.shade{
+	height: 7px;
+	width: 948px;
+	background: -webkit-linear-gradient(#e0e0e0,#fff);
+}
+.tit{
+	height: 70px;
+	margin: 0px 20px;
+	padding: 50px 0px 0px 179px;
+	box-sizing: border-box;
+	border-bottom: 1px dotted #878787;
+	background: url(../images/register_pic_01.gif) no-repeat 108px 22px,url(../images/register_pic_02.gif) no-repeat 179px 30px;
+}
+.tit p{
+	color: #cc3300;
+}
+.fom{
+	height: 240px;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.ip{
+	margin-top: 10px;
+}
+.message{
+	display: inline-block;
+	width: 233px;
+	height: 27px;
+	line-height: 27px;
+	text-align: right;
+	color: #333333;
+	font-size: 14px;
+	float: left;
+}
+.ti1{
+	display: inline-block;
+	height: 24px;
+	float: left;
+	margin-left: 5px;
+	line-height: 24px;
+}
+.inp1{
+	float: left;
+}
+.ip input{
+	width: 202px;
+	height: 23px;
+	outline: none;
+}
+.ip select{
+	width: 120px;
+	height: 20px;
+	outline: none;
+}
+.ip a{
+	display: inline-block;
+	width: 145px;
+	height: 31px;
+	background: url(../images/register_btn_out.gif) no-repeat 0px 0px;
+	border: none;
+	outline: none;
+}
+.ip a:hover{
+	background: url(../images/register_btn_over.gif) no-repeat 0px 0px;
+}
+/*页脚部分*/
+.footer{
+	width: 950px;
+	margin: 0 auto;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+}
+.footer_sp1{
+	float: left;
+	margin-left: 136px;
+}
+.footer_sp2{
+	float: left;
+}
+.footer img{
+	float: left;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+         
+    </style>
+</head>
+<body>
+    <div id="box">
+    	 <my-com></my-com>
+    	 <my-com></my-com>
+    	 <my-com></my-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	var a = {num:0}
+    	    var vm = new Vue({
+    	    	el:"#box",
+    	    	components:{
+    	    		'my-com':{
+    	    			template:"<div><button @click='add()'>第{{num}}次点击按钮</button></div>",
+    	    			data:function(){
+    	    				return{
+    	    					return a;
+    	    				}
+    	    			},
+    	    			methods:{
+    	    				add:function(){
+    	    					this.num++;
+    	    				}
+    	    			}
+    	    		}
+    	    	}
+    	    })
+            
+    </script>
+</body>
+</html>

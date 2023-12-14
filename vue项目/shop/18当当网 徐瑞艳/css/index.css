@@ -1,0 +1,352 @@
+.gg{
+	position: fixed;
+	right: 34px;
+    top: 50px;
+}
+.close{
+	position: absolute;
+	right: 0px;
+}
+.thing_list{
+	height: 960px;
+	margin-top: 15px;
+}
+.thing_list_left{
+	width: 180px;
+	height: 937px;
+	/*border: 1px solid #999999;*/
+	float: left;
+}
+.thing_list_left_top{
+	height: 50px;
+	border: 1px solid #999999;
+}
+.top_p1{
+	height: 25px;
+	background-color: #fff0d9;
+	font-weight: bold;
+	color: #882d00;
+	text-indent: 5px;
+	padding-top: 8px;
+	box-sizing: border-box;
+}
+.top_p2{
+	height: 25px;
+	line-height: 25px;
+	text-indent: 5px;
+}
+.thing_list_left_bottom{
+	height: 860px;
+	border: 1px solid #999999;
+	margin-top: 10px;
+}
+.top_p3{
+	height: 25px;	
+	font-weight: bold;
+	color: #882d00;
+	text-indent: 25px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	background: url(../images/dd_book_cate_icon.gif) no-repeat 4px 7px;
+	background-color: #fff0d9;
+}
+.book_list_ul{
+	height: 806px;
+	padding: 0px 10px;
+	box-sizing: border-box;
+}
+.book_list_ul li{
+	border-bottom: 1px solid #666666;
+	margin-top: 14px;
+}
+.bott_p1{
+	font-weight: bold;
+}
+.bott_p2{
+	line-height: 25px;
+}
+/*内容中上部*/
+.thing_list_center{
+	width: 541px;
+	height: 959px;
+	/*border: 1px solid #999999;*/
+	float: left;
+	margin-left: 10px;
+}
+.thing_list_center_top{
+	height: 244px;
+	border-left: 1px solid #d6d5d6;
+	border-right: 1px solid #d6d5d6;
+	border-bottom-left-radius: 12px;
+	border-top-left-radius: 55px;
+	border-bottom-right-radius: 12px;
+	position: relative;
+	background: url(../images/dd_scroll_top.gif) no-repeat,url(../images/dd_scroll_end.gif) no-repeat 0px 0px;
+	background-color: #f2f2f3;
+}
+.lunbo{
+	margin-left: 10px;
+	overflow: hidden;
+	width: 500px;
+	height: 180px;
+}
+.xulie{
+	position: absolute;
+	right: 7px;
+	top: 58px;
+}
+.xulie li{
+	border: 1px solid #999;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+.thing_list_center_center{
+	height: 280px;
+	border: 1px solid #999;
+	margin-top: 10px;
+}
+.thing_list_center_s{
+	height: 25px;
+	background: #ebebeb;
+}
+.pp_1{
+	font-size: 14px;
+	font-weight: bold;
+	color: #882d00;
+	margin: 7px 53px 0px 10px;
+}
+.pp_2{
+	width: 40px;
+	height: 20px;
+	background: url(../images/dd_book_bg1.jpg) no-repeat 0px 0px;
+	text-align: center;
+	border: none;
+	line-height: 20px;
+	margin-top: 4px;
+	outline: none;
+}
+.pp_4{
+	width: 40px;
+	height: 21px;
+	font-weight: bold;
+	text-align: center;
+	border: none;
+	line-height: 20px;
+	margin-top: 4px;
+	outline: none;
+	background: url(../images/dd_book_bg2.jpg) no-repeat 0px 0px;
+}
+.pp_3{
+	float: right;
+	margin-top: 10px;
+	margin-right: 5px;
+}
+.tushu{
+	padding: 7px 20px 0px;
+	box-sizing: border-box;
+	display: none;
+}
+.tushu1{
+	padding: 7px 20px 0px;
+	box-sizing: border-box;
+}
+.tushu li{
+	width: 218px;
+	height: 120px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 3px;
+}
+.tushu1 li{
+	width: 218px;
+	height: 120px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 3px;
+}
+/*.tushu1 li{
+	width: 218px;
+	height: 120px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 3px;
+}*/
+.tushu .tushu_1{
+	margin-right: 0px;
+}
+.tushu1 .tushu_1{
+	margin-right: 0px;
+}
+.history_tu{
+	width: 72px;
+	height: 120px;
+	float: left;
+}
+.history_zi{
+	width: 144px;
+	height: 110px;
+	float: left;
+	border: 1px solid transparent;
+}
+.history_zi:hover{
+	border: 1px solid orange;
+}
+.history_zi p{
+	margin: 1px 0px;
+}
+.history_zi_p1{
+	color: #1965b3;
+}
+.history_zi_p2{
+	color: #cc0000;
+}
+.thing_list_center_bottom{
+	height: 410px;
+	border: 1px solid #999;
+	margin-top: 8px;
+}
+.guanz{
+	height: 385px;
+	padding: 10px 10px 0px;
+}
+.guanz li{
+	width: 122px;
+	height: 177px;
+	float: left;
+	margin-right: 8px;
+	margin-bottom: 7px;
+}
+.guanz .li4{
+	margin-right: 0px;
+}
+.guanz_tu{
+	height: 100px;
+	text-align: center;
+}
+.guanz_name{
+	height: 40px;
+	color: #1965b3;
+}
+.guanz_money{
+	margin-bottom: 5px;
+}
+
+.thing_list_right{
+	width: 213px;
+	height: 959px;
+	float: left;
+	margin-left: 10px;
+}
+.thing_list_right_top{
+	height: 513px;
+	border: 1px solid #999999;
+	background: url(../images/dd_book_right_adver1.jpg) no-repeat 0px 286px,url(../images/dd_book_right_adver2.gif) no-repeat 0px 405px;
+}
+.shuxun{
+	height: 25px;
+	background: url(../images/dd_book_mess.gif) no-repeat 2px 1px;
+	background-color: #fff0d9;
+	text-indent: 2em;
+	color: #882d00;
+	line-height: 25px;
+	font-weight: bold;
+}
+#inDiv{
+	position: relative;
+	height: 260px;
+	overflow: hidden;
+}
+.thing_list_right_lie{
+	padding: 12px 15px 0px;
+	box-sizing: border-box;
+	top: 0px;
+	position: absolute;
+}
+.thing_list_right_lie li{
+	height: 20px;
+	width: 100%;
+	border-bottom: 1px dashed #999999;
+	line-height: 20px;
+	color: #333333;
+}
+.thing_list_right_bottom{
+	height: 430px;
+	border: 1px solid #999999;
+	margin-top: 10px;
+}
+.top_tit{
+	height: 25px;
+	line-height: 25px;
+	text-indent: 5px;
+	color: #fff;
+	background: url(../images/dd_bang.gif) no-repeat 85px 0px;
+	background-color: #518700;
+}
+.list_book{
+	height: 405px;
+	padding: 3px;
+	box-sizing: border-box;
+}
+.nei_list_book{
+	height: 100%;
+	background-color: #f2f4df;
+}
+.nei_list_book p{
+	width: 35px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	float: left;
+	background: url(../images/dd_seven_bg1.jpg)no-repeat 0px 0px;
+}
+.ppp1{
+	margin-left: 28px;
+}
+.shushu{
+	height: 379px;
+	border: 1px solid #bdc1c4;
+}
+.earth{
+	width: 100%;
+	height: 80px;
+	margin-bottom: 10px;
+}
+.earth_p1{
+	width: 80px;
+	height: 80px;
+	float: left;
+	background: url(../images/dd_book_no_01.gif) no-repeat 1px 0px,url(../images/dd_seven_hearten_01.jpg) no-repeat 26px 0px;
+}
+.earth_div{
+	width: 122px;
+	height: 80px;
+	float: left;
+}
+.earth_div div{
+	margin: 5px 0px;
+}
+.shijie{
+	color: #1965b3;
+}
+.shushu1{
+	height: 20px;
+	width: 100%;
+	line-height: 20px;
+	text-indent: 2em;
+	color: #1965b3;
+	background: url(../images/dd_book_no_04.gif) no-repeat 3px 0px;
+}
+.shushu .shushu2{
+	background: url(../images/dd_book_no_05.gif) no-repeat 3px 0px;
+}
+.shushu .shushu3{
+	background: url(../images/dd_book_no_06.gif) no-repeat 3px 0px;
+}
+.shushu .shushu4{
+	background: url(../images/dd_book_no_07.gif) no-repeat 3px 0px;
+}
+.shushu .shushu5{
+	background: url(../images/dd_book_no_08.gif) no-repeat 3px 0px;
+}

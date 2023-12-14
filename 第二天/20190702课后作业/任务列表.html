@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+      	    *{
+      	    	padding: 0px;
+      	    	margin: 0px;
+      	    }
+            a{
+              text-decoration: none;
+            }
+            li{
+              list-style: none;
+            }
+            .head{
+            	width: 100%;
+            	height:50px;
+            	line-height: 50px;
+            	background-color: pink;
+            	text-align: center;
+            }
+            .head>span{
+            	margin-right:30px;
+            	color: #fff;
+            }
+            .listOne>li>span,.listTwo>li>span{
+            	float: left;
+            }
+      </style>
+</head>
+<body>
+     
+      <div id="rao">
+           <div class="head">
+           	    <span>ToDoList</span>
+           	    <input type="text" placeholder="添加ToDo" v-model='titles'  @keydown.enter='add()'/>
+           </div>
+			           <p><b>正在进行</b><i></i></p>
+			           <ul class="listOne">
+			           	   <li v-for='(item1,index) of listOne'>
+			           	   	   <span>{{index++}}.</span>
+			           	   	   <p>{{item1.msg2}}</p>
+			           	   </li>
+			           </ul>
+			           <p><b>已经完成</b><i></i></p>
+			           <ul class="listTwo">
+			           	   <li v-for='(item,index) of listTwo'>
+			           	   	   <span>{{index+1}}.</span>
+			           	   	   
+			           	   	   <p><input type="checkbox" v-model='item.isDo' @clcik='unDo()' />{{item.msg}}</p>
+			           	   </li>
+			           </ul>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#rao',
+                  data:{ 
+                  	  titles:'',
+                  	  isDo:false,
+                  	  listOne:[],
+                  	  listTwo:[]
+                  },
+                  methods:{
+                      add(){
+                      	if(this.titles==''){
+                      		alert('添加任务不能为空!');
+                      	}else{
+                      		this.listTwo.push({msg:this.titles,isDo:true});
+                      	}
+                      	
+                      },
+                      unDo(){
+                      	if(this.isDo == !this.isDo){
+                      		this.listOne.push({msg2:this.titles,isDo:true});
+                      	}
+                      }
+                  },
+              })
+      </script>
+</body>
+</html>

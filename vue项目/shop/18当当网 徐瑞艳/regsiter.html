@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/regsiter.css" />
+		<script type="text/javascript" src="js/regsiter.js"></script>
+	</head>
+	<body>
+		<!--头部部分-->
+		<div class="top">
+			<ul class="logo_right">
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li>
+					<a href="zhanshi.html">商品展示页</a>
+				</li>
+				<li>
+					<a href="gouwuche.html">购物车</a>
+				</li>
+				<li class="li_s">
+					<a href="regsiter.html">注册</a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<!--注册部分-->
+		<div class="regsiter">
+			<div class="regsiter_top">
+				<ul class="regsiter_top_ul">
+					<li class="regsiter_top_li">填写注册信息</li>
+					<li>2.邮箱验证</li>
+					<li>3.完成注册</li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="shade"></div>
+			<div class="tit">
+				<p>
+					您所提供的资料不会做其他用途，敬请安心填写
+				</p>
+			</div>
+			<form method="get" class="fom" id="fom" name="lineandstation">
+				<div class="ip">
+					<span class="message">Email地址 :&nbsp;</span>
+					<input type="text" name="Email" class="inp1" />
+					<span id="ti" class="ti1"></span>
+				</div>
+				<div class="clear"></div>
+				<div class="ip">
+					<span class="message">设置昵称 :&nbsp;</span>
+					<input type="text" name="names" class="inp1" />
+					<span id="ti2" class="ti1"></span>
+				</div>
+				<div class="clear"></div>
+				<div class="ip">
+					<span class="message">设定密码 :&nbsp;</span>
+					<input type="password" name="pass" class="inp1" />
+					<span id="ti3" class="ti1"></span>
+				</div>
+				<div class="clear"></div>
+				<div class="ip">
+					<span class="message">再次输入一次密码 :&nbsp;</span>
+					<input type="password" name="new_pass" class="inp1" />
+					<span id="ti4" class="ti1"></span>
+				</div>
+				<div class="clear"></div>
+				<div class="ip">
+					<span class="message">性别 :&nbsp;</span>
+					<input type="radio" name="Email" checked="checked" style="width: 12px;height: 12px;" /> 男&nbsp;
+					<input type="radio" name="Email" style="width: 12px;height: 12px;" /> 女
+				</div>
+				<div class="clear"></div>
+				<div class="ip">
+					<span class="message">所在地区 :&nbsp;</span>
+					<select name="sheng" id="sheng" <!--onchange="getStationName()"-->>
+						<option>请选择省份</option>
+					</select>
+					<select name="cheng" id="cheng">
+						<option>请选择城市</option>
+					</select>
+				</div>
+				<div class="ip">
+					<span class="message"></span>
+					<a href="javascript:;" id="btn"></a>
+				</div>
+			</form>
+		</div>
+		<!--页脚部分-->
+		<div class="footer center">
+				<span class="footer_sp1">Copyright (C) 当当网 2004-2017, All Rights Reserved</span>
+				<img src="images/validate.gif" />
+				<span class="footer_sp2">京ICP证041189号出版物经营许可证 新出发京批字第直0673号</span>
+		</div>
+	</body>
+</html>

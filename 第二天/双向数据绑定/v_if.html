@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+      <style type="text/css">
+             .blue{
+                  height: 200px;
+                  width:200px ;
+                  background: blue;
+             }
+             .bor{
+                  border: 20px solid green;
+             }
+      </style>
+</head>
+<body>
+     
+      <div id="rao">
+           <!-- 二选一 -->
+           <h2>1.v-if判断二选一</h2>
+           <button @click="shows()">404,error的值是{{TF}}</button>
+           <p v-if="TF">页面连接错误,请重试</p>
+           <p v-else>加载成功!</p>
+           <!-- 多选一 -->
+           <h2>2.v-if判断多选一</h2>
+           <button @click="moreSel">检测您电脑的开机速度{{num}}</button>
+           <p v-if="num>8">贼快,您的电脑可以打打游戏</p>
+           <p v-else-if="num>5 && num<=8">还行,您的电脑就办办公吧</p>
+           <p v-else-if="num>3 && num<=5">很差劲,您的电脑只能看看而已，不能玩</p>
+           <p v-else="num<=3">可以丢了,您的电脑跟模型一样,而且还不好看</p>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+              var vm = new Vue({
+                  el:'#rao',
+                  data:{ 
+                      TF:false,
+                      speed:"",
+                      num:0
+                  },
+                  methods:{
+                    shows:function(){
+                      this.TF = !this.TF;
+                    },
+                    moreSel:function(){
+                      this.num = parseInt(Math.random()*10);
+                    }
+                  }
+                  
+              })
+      </script>
+</body>
+</html>

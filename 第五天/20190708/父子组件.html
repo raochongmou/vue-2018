@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!--<div id="box">
+    	 <my-com :arr="list"></my-com>
+    	 <ul>
+    	 	<li v-for="item in list">
+    	 		{{item}}
+    	 	</li>
+    	 </ul>
+    </div>-->
+    <div id="box2">
+    	 <my :Chars='Strings' :num='numbers' :obj='objects'>
+    	 	      
+    	 </my>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    	   var vm = new Vue({
+    	   	el:'#box2',
+    	   	data:{
+    	   		Strings:"傻城",
+    	   		numbers:68,
+    	   		objects:[
+    	   		        {name:'张三丰',age:20},
+    	   		        {name:'张四丰',age:18},
+    	   		        {name:'张五丰',age:18},
+    	   		        {name:'张六丰',age:88888}
+    	   		        ]
+    	   	},
+    	   	components:{
+    	   		"my":{
+    	   			template:`<div>
+    	   			               <h2>{{Chars}}</h2>
+    	   			               <h3>数字:{{num}}</h3>
+    	   			               <h4 v-for='str in obj' v-show='str.age == 18'>对象:名字:{{str.name}},年龄:{{str.age}}</h4>
+    	   			          </div>`,
+    	   			          props:['Chars','num','obj']
+    	   		}
+    	   	}
+    	   })
+//          var vm = new Vue({
+//          	el:'#box',
+//          	data:{
+//          		list:["android","apple","html","pathy"]
+//          	},
+//          	components:{
+//          		'my-com':{
+//          			template:`
+//          			<ul>
+//          			    <li v-for="item in arr">{{item}}</li>
+//          			</ul>`,
+//          			props:['arr'],
+//          			data:function(){
+//          				return{
+//          					arr:['导航1','导航2','导航3','导航4']
+//          				}
+//          			}
+//          		}
+//          	}
+//          })
+            //同级数据同级渲染
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>初恋vue</title>
+      <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+  <style type="text/css">
+      	     .sp-font{
+      	     	font-size: 18px;
+      	     	padding:5px;
+      	     }
+      	     .table>tbody>tr>td{
+      	     	width: 20%;
+      	     }
+      	     
+      </style>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+</head>
+<body>
+      <div class="container" id="rao">
+      	   <div class="row">
+      	   	    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      	   	    		 <table class="table">
+      	   	    		 	      <thead>
+      	   	    		 	      	<th><input type="checkbox" v-model="allChecked" @click='allSelect( )' />全选{{allChecked}}</th>
+      	   	    		 	      	<th>商品</th>
+      	   	    		 	      	<th>单价</th>
+      	   	    		 	      	<th style="padding-left:40px;">数量</th>
+      	   	    		 	      	<th>小计</th>
+      	   	    		 	      	<th style="padding-right:20px;" class="text-right">操作</th>
+      	   	    		 	      </thead>
+      	   	    		 	      <tbody>
+				      	   	    		 	      <tr v-for="(tds,index) in arr" :class='{success:index%3==0,danger:index%3==1,warning:index%3==2}'>
+				      	   	    		 	      	<td><input type="checkbox" v-model="tds.isCheck" @click='check(index)'/>
+				      	   	    		 	      		{{tds.isCheck}}
+				      	   	    		 	      	</td>
+				      	   	    		 	      	<td class="text-success">{{tds.products}}</td>
+				      	   	    		 	      	<td class="text-warning">{{tds.price}}</td>
+				      	   	    		 	      	<td>
+				      	   	    		 	      		<button @click='sub(index)' class="btn btn-primary">-</button>
+				      	   	    		 	      		<span class="sp-font">{{tds.nums}}</span>
+				      	   	    		 	      		<button @click='add(index)' type="button" class="btn btn-primary">+</button>
+				      	   	    		 	      	</td>
+				      	   	    		 	      	<td class="text-info">{{(tds.price*tds.nums).toFixed(2)}}</td>
+				      	   	    		 	      	<td class="text-right">
+				      	   	    		 	      		<button @click='deletes(index)' class="btn btn-success btn-sm">删除</button>
+				      	   	    		 	      	</td>
+				      	   	    		 	      </tr>
+      	   	    		 	      </tbody>
+      	   	    		 </table>
+      	   	    </div>
+      	   </div>
+      	   <!--数量计算-->
+    		   <div class="row">
+    		   	    <!--数量总计-->
+    		    	  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    		    	  	   数量总计:<span>{{allCount}}</span>
+    		    	  </div>
+    		    	  <!--价格总计-->
+    		    	  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    		    	  	   价格总计:<span>{{allPrice}}</span>
+    		    	  </div>
+    		    	  <!--清空购物车-->
+    		    	  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    		    	  </div>
+    		    	  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+    		    	  	   <button @click='clearShopCar()' type="button" class="btn btn-warning">清空购物车</button>
+    		    	  </div>
+    		   </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script type="text/javascript">
+      	       
+               var myName = new Vue({
+               	el:'#rao',
+               	data:{
+               		//生成表格
+               		arr:[
+               		    {products:'产品1',price:1.33,nums:2,isCheck:false},
+               		    {products:'产品2',price:4.33,nums:2,isCheck:false},
+               		    {products:'产品3',price:3.33,nums:2,isCheck:false},
+               		    {products:'产品4',price:1.23,nums:1,isCheck:false},
+               		    {products:'产品5',price:1.33,nums:2,isCheck:false},
+               		    {products:'产品6',price:100 ,nums:3,isCheck:false}
+               		],
+             		nums:'0',
+             		allCount:0,
+             		allPrice:0,
+             		allChecked:false
+               	},
+               	methods:{
+               		//封装更改总数量的方法，多出调用
+               		totalCount:function(){
+               			//更改总数量
+               			var countNum = 0;
+               			for(var i=0;i<this.arr.length;i++){
+               				if(this.arr[i].isCheck){
+               					countNum = countNum + this.arr[i].nums;
+               				}
+               			}
+               			this.allCount = countNum;
+               		},
+               		totalPrice:function(){
+               			//更改总价格
+               			var priceNum = 0;
+               			for(var i=0;i<this.arr.length;i++){
+               				if(this.arr[i].isCheck){
+               					priceNum = priceNum + this.arr[i].price*this.arr[i].nums;
+               				}
+               			}
+               			this.allPrice = priceNum;
+               		},
+               		//删除按钮
+               		deletes:function(index){
+               			
+               			this.arr.splice(index,1);
+               			this.totalCount();
+               			this.totalPrice();
+               			this.tAndF();
+               		},
+               		tAndF:function(){
+               			for(var i=0;i<this.arr.length;i++){
+               				if(this.arr[i].isCheck){
+               					this.allChecked = true;
+               				}else{
+               					this.allChecked = false;
+               					break;
+               				}
+               			}
+               		},
+               		//点击商品前的复选框算数量
+               		check:function(k){
+               			//更改复选框的状态
+               			this.arr[k].isCheck = !this.arr[k].isCheck;
+               			this.totalCount();
+               			this.totalPrice();
+               			this.tAndF();
+               		},
+               		//加按钮
+               		add:function(m){
+               			this.arr[m].nums++;
+               			this.totalCount();
+               			this.totalPrice();
+               		},
+               		//减按钮
+               		sub:function(m){
+               			this.arr[m].nums--;
+               			if(this.arr[m].nums<1){
+               				this.arr[m].nums = 1;
+               				alert('数量最少为1')
+               			}
+               			this.totalCount();
+               			this.totalPrice();
+               		},
+               		clearShopCar:function(){
+               			this.arr = [];
+               			this.allPrice = 0;
+               			this.allCount = 0;
+               			this.allChecked = false;
+               		},
+               		//全选按钮
+               		allSelect:function(){
+               			//更改全选框的状态
+               			//初始状态
+               			this.allChecked = !this.allChecked;
+               			//都选中
+               			//全选选中时让子复选框都选中
+               			for(var i=0;i<this.arr.length;i++){
+               					this.arr[i].isCheck = this.allChecked;
+               			}
+               		}
+               	}
+               })
+      </script>
+</body>
+</html>
